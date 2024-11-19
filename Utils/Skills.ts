@@ -10,9 +10,8 @@ interface SkillType {
 const skills: SkillType[] = [
   { id: 1, name: "FullStack Web Development", icon: FaCode},
   { id: 2, name: "UI/UX Design", icon: FaPalette},
-  { id: 3, name: "Mobile Development", icon: FaMobile},
+  { id: 3, name: "Flutter Development", icon: FaMobile},
   { id: 4, name: "DevOps", icon: FaDev},
-
 ];
 
 export default skills;

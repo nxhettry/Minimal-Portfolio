@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
     <>
@@ -27,6 +29,13 @@ const Navbar = () => {
                 {item}
               </a>
             ))}
+            <button onClick={() => setIsDarkMode(!isDarkMode)}>
+              {isDarkMode ? (
+                <FaSun className="w-6 h-6" />
+              ) : (
+                <FaMoon className="w-6 h-6" />
+              )}
+            </button>
           </div>
           <button
             className="md:hidden"
