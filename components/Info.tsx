@@ -12,7 +12,7 @@ const Info = () => {
           className="w-full h-full object-cover object-center"
         />
       </div>
-      <p className="mt-4 text-gray-600 max-w-xl">
+      <p className="mt-4 text-gray-600 dark:text-gray-200 max-w-xl">
         I build reliable and user-friendly software, turning ideas into digital
         solutions.
       </p>

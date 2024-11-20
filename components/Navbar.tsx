@@ -2,11 +2,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
     <>
@@ -15,7 +13,7 @@ const Navbar = () => {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-2xl font-bold font-heading text-black"
+            className="text-2xl font-bold font-heading"
           >
             NISHAN GAUTAM
           </motion.h1>
@@ -24,18 +22,11 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-black transition-colors"
+                className="text-gray-600 hover:text-black dark:text-gray-200 transition-colors"
               >
                 {item}
               </a>
             ))}
-            <button onClick={() => setIsDarkMode(!isDarkMode)}>
-              {isDarkMode ? (
-                <FaSun className="w-6 h-6" />
-              ) : (
-                <FaMoon className="w-6 h-6" />
-              )}
-            </button>
           </div>
           <button
             className="md:hidden"
