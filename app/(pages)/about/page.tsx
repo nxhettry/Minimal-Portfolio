@@ -1,16 +1,30 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 
 const Aboutpage = () => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
-    <div className="pt-32 flex flex-col justify-center align-center gap-4">
-      <p className="w-full text-center">
+    <div className="pt-32 max-w-2xl mx-auto flex flex-col justify-center items-center gap-8">
+      <p>
         Hi! I{"'"}m <span className="font-bold text-xl"> Nishan</span>. I am a
         software developer and a tech entusiast.
       </p>
-      <button className="px-4 py-2 rounded-xl border border-black mx-auto hover:bg-white hover:bg-opacity-90 hover:cursor-pointer">Read More</button>
+      {!showMore && (
+        <button
+          onClick={() => setShowMore(true)}
+          className="z-10 px-4 py-3 border-black border rounded-xl hover:bg-gray-200 hover:bg-opacity-40"
+        >
+          Read More
+        </button>
+      )}
 
-
-      
+      {showMore && (
+        <p>
+          What else do you want to learn,{" "}
+          <span className="font-bold text-3xl">यति ले पुगेन ?</span>
+        </p>
+      )}
     </div>
   );
 };
