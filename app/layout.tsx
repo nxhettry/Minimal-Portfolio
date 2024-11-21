@@ -18,7 +18,7 @@ export default function RootLayout({
       <body className={`font-body w-3/5 mx-auto`}>
         <BackgroundLines>
           <Navbar />
-          {children}
+          <div className="py-20 h-full w-full">{children}</div>
         </BackgroundLines>
       </body>
     </html>

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,13 +20,13 @@ const Navbar = () => {
           </motion.h1>
           <div className="hidden md:flex space-x-8">
             {["About", "Skills", "Projects", "Contact"].map((item) => (
-              <a
+              <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`/${item.toLowerCase()}`}
                 className="text-gray-600 hover:text-black dark:text-gray-200 transition-colors"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
           <button
