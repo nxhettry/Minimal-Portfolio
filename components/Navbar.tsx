@@ -19,10 +19,12 @@ const Navbar = () => {
             NISHAN GAUTAM
           </motion.h1>
           <div className="hidden md:flex space-x-8">
-            {["About", "Skills", "Projects", "Contact"].map((item) => (
+            {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
               <Link
                 key={item}
-                href={`/${item.toLowerCase()}`}
+                href={`/${
+                  item.toLowerCase() === "home" ? "" : item.toLowerCase()
+                }`}
                 className="text-gray-600 hover:text-black dark:text-gray-200 transition-colors"
               >
                 {item}
