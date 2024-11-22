@@ -8,7 +8,7 @@ const Aboutpage = () => {
     <div className="pt-32 max-w-2xl mx-auto flex flex-col justify-center items-center gap-8">
       <p>
         Hi! I{"'"}m <span className="font-bold text-xl"> Nishan</span>. I am a
-        software developer and a tech entusiast.
+        software developer and Learning Agent.
       </p>
       {!showMore && (
         <button
