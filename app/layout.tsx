@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import Navbar from "@/components/Navbar";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Minimalist portfolio",
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-body w-3/5 mx-auto`}>
-        {/* <BackgroundLines> */}
+        <Providers>
+          {/* <BackgroundLines> */}
           <Navbar />
           <div className="py-20 h-full w-full">{children}</div>
-        {/* </BackgroundLines> */}
+          {/* </BackgroundLines> */}
+        </Providers>
       </body>
     </html>
   );

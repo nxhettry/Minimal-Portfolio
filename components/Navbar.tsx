@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import Link from "next/link";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ const Navbar = () => {
           >
             NISHAN GAUTAM
           </motion.h1>
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 items-center">
             {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
               <Link
                 key={item}
@@ -30,6 +31,8 @@ const Navbar = () => {
                 {item}
               </Link>
             ))}
+
+            <ThemeSwitcher /> 
           </div>
           <button
             className="md:hidden"

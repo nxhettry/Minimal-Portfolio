@@ -3,6 +3,8 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import { FiSend } from "react-icons/fi";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/use-toast";
+import { SocialLinks } from "@/Utils/SocialLinks";
+import Link from "next/link";
 
 interface FormData {
   name: string;
@@ -72,11 +74,10 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      
+    <div className="min-h-screen bg-white dark:bg-inherit px-4 sm:px-6 lg:px-8 flex flex-col space-y-24 items-center justify-center">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className=" text-center text-3xl font-extrabold text-gray-900">
+          <h2 className=" text-center text-3xl font-extrabold dark:text-white text-gray-900">
             Get in Touch
           </h2>
         </div>
@@ -85,7 +86,7 @@ const ContactForm: React.FC = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium dark:text-white text-gray-700"
               >
                 Name
               </label>
@@ -109,7 +110,7 @@ const ContactForm: React.FC = () => {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium dark:text-white text-gray-700"
               >
                 Message
               </label>
@@ -151,6 +152,29 @@ const ContactForm: React.FC = () => {
           </div>
         </form>
       </div>
+
+      <div className="flex items-end justify-center space-x-4 p-4 bg-transparent">
+        {SocialLinks.map((social, index) => (
+          <Link
+            key={index}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center hover:bg-gray-700 rounded-full transition-all transform hover:scale-125 duration-300"
+            style={{
+              width: "3rem",
+              height: "3rem",
+              transitionTimingFunction: "ease-in-out",
+              transitionDuration: "0.3s",
+            }}
+          >
+            <span className="text-2xl text-black dark:text-white hover:text-white transition-all duration-300">
+              {social.icon}
+            </span>
+          </Link>
+        ))}
+      </div>
+
       <Toaster />
     </div>
   );
