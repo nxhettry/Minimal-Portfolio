@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/use-toast";
 import { SocialLinks } from "@/Utils/SocialLinks";
 import Link from "next/link";
+import emailjs from "emailjs-com";
 
 interface FormData {
   name: string;
@@ -59,7 +60,12 @@ const ContactForm: React.FC = () => {
     if (Object.keys(formErrors).length === 0) {
       setIsSubmitting(true);
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await emailjs.sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+          e.target as HTMLFormElement,
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+        );
         setFormData({ name: "", message: "" });
         toast({ title: "Message sent successfully!" });
       } catch (error) {
@@ -137,7 +143,7 @@ const ContactForm: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white dark:text-black bg-black dark:bg-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 <FiSend

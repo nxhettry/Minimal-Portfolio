@@ -7,7 +7,7 @@ const ProjectPage = () => {
     <div className="py-64 text-white flex flex-col justify-center items-center space-y-40">
       {projects?.map((project, index) => {
         return (
-          <PinContainer key={index} title={project.name} href={project.repoUrl}>
+          <PinContainer key={index} title={project.name} href={project.repoUrl} description={project.description}>
             <div className="h-80 w-[30vw] flex items-center space-x-8 py-2">
               <Image
                 priority
