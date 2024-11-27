@@ -18,10 +18,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`font-body w-3/5 mx-auto`}>
         <Providers>
-          {/* <BackgroundLines> */}
-          <Navbar />
-          <div className="py-20 h-full w-full">{children}</div>
-          {/* </BackgroundLines> */}
+          <BackgroundLines>
+            <Navbar />
+            <div className="py-20 h-full w-full">{children}</div>
+          </BackgroundLines>
         </Providers>
       </body>
     </html>
