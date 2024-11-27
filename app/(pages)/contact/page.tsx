@@ -87,7 +87,7 @@ const ContactForm: React.FC = () => {
             Get in Touch
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="relative z-50 mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm space-y-4">
             <div>
               <label

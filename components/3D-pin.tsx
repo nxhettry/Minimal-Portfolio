@@ -75,7 +75,7 @@ export const PinPerspective = ({
         <div className="absolute top-0 inset-x-0  flex justify-center">
           <Link
             href={href || "#"}
-            className="relative flex space-x-2 items-center z-10 rounded-full bg-gray-100 dark:bg-black py-0.5 px-4 ring-1 ring-white/10 "
+            className="relative flex space-x-2 items-center z-100 rounded-full bg-gray-100 dark:bg-black py-0.5 px-4 ring-1 ring-white/10 "
           >
             <div className="w-full flex flex-col justify-center items-center gap-2">
               <span className="relative z-20 text-black dark:text-white text-sm font-bold inline-block py-0.5">
