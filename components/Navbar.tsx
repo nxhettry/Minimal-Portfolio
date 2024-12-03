@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full mx-auto z-50 shadow-sm">
-        <div className="w-[60%] backdrop-blur-sm fixed px-4 py-4 flex justify-between items-center">
+        <div className="w-full md:w-[60%] md:fixed backdrop-blur-sm px-4 py-4 flex justify-between items-center">
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -32,7 +32,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <ThemeSwitcher /> 
+            <ThemeSwitcher />
           </div>
           <button
             className="md:hidden"
@@ -47,17 +47,36 @@ const Navbar = () => {
         </div>
       </nav>
       {isMenuOpen && (
-        <div className="fixed inset-0  z-40 pt-20 md:hidden">
+        <div className="fixed inset-0 bg-white z-[100] pt-20 md:hidden">
+          <div className="w-full px-12 mx-auto flex justify-end items-center">
+            <svg
+              onClick={() => setIsMenuOpen(false)}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
           <div className="flex flex-col items-center space-y-8 p-8">
-            {["About", "Skills", "Projects", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-xl text-gray-600 hover:text-black transition-colors"
+            {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+              <Link
                 onClick={() => setIsMenuOpen(false)}
+                key={item}
+                href={`/${
+                  item.toLowerCase() === "home" ? "" : item.toLowerCase()
+                }`}
+                className="text-gray-600 hover:text-black dark:text-gray-200 transition-colors"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
