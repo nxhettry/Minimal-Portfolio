@@ -15,7 +15,7 @@ const Navbar = () => {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-2xl font-bold font-heading"
+            className="text-lg md:text-2xl font-bold font-heading"
           >
             NISHAN GAUTAM
           </motion.h1>
@@ -34,20 +34,26 @@ const Navbar = () => {
 
             <ThemeSwitcher />
           </div>
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <HiX className="w-6 h-6" />
-            ) : (
-              <HiMenu className="w-6 h-6" />
-            )}
-          </button>
+
+          <div className="flex justify-center items-center">
+            <div className="md:hidden flex justify-center items-center">
+              <ThemeSwitcher />
+            </div>
+            <button
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <HiX className="w-6 h-6" />
+              ) : (
+                <HiMenu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[100] pt-20 md:hidden">
+        <div className="fixed inset-0 dark:bg-black dark:text-white text-black bg-white z-[100] pt-20 md:hidden">
           <div className="w-full px-12 mx-auto flex justify-end items-center">
             <svg
               onClick={() => setIsMenuOpen(false)}
