@@ -80,7 +80,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-inherit px-4 sm:px-6 lg:px-8 flex flex-col space-y-24 items-center justify-center">
+    <div className="relative min-h-screen bg-white dark:bg-inherit px-4 sm:px-6 lg:px-8 flex flex-col space-y-24 items-center justify-center">
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className=" text-center text-3xl font-extrabold dark:text-white text-gray-900">
@@ -181,7 +181,9 @@ const ContactForm: React.FC = () => {
         ))}
       </div>
 
-      <Toaster />
+      <div className="absolute top-0 right-0">
+        <Toaster />
+      </div>
     </div>
   );
 };
