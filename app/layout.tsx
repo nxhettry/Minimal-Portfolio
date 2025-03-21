@@ -3,6 +3,7 @@ import "./globals.css";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Minimalist portfolio",
@@ -20,7 +21,11 @@ export default function RootLayout({
         <Providers>
           <BackgroundLines>
             <Navbar />
-            <div className="py-20 h-full w-full">{children}</div>
+            <div className="py-20 h-full w-full">
+              {children}
+
+              <Analytics />
+            </div>
           </BackgroundLines>
         </Providers>
       </body>
